@@ -1,11 +1,11 @@
 # OpencvExample
 OpencvExample for beginners with python
 03：
-	利用摄像头读取画面，展示画面，获取画面的张宽，以及写画面。
-	摄像头读取画面是一针一针读取的，将这一帧一帧的画面放到一个循环中，连成视频。
-	• 读取：cap=cv2.VedioCapture(0); 其中参数是可为摄像头编号，或者视频文件的路径
+	利用摄像头读取画面，展示画面，获取画面的张宽，以及写画面。  
+	摄像头读取画面是一针一针读取的，将这一帧一帧的画面放到一个循环中，连成视频。  
+	• 读取：cap=cv2.VedioCapture(0); 其中参数是可为摄像头编号，或者视频文件的路径  
 		Ret,frame  =  Cap.read(),ret是布尔值，读取到返回ture， 读取到文件末尾返回False，frame是一帧图像。
-	• 写入：writer = cv.VideoWrite（path, fourcc, fps, (H, W)），fourcc是视频的格式，长用的是：fourcc=cv2.VideoWriter_fourcc(*'XVID')
+	• 写入：writer = cv.VideoWrite（path, fourcc, fps, (H, W)），fourcc是视频的格式，长用的    是：fourcc=cv2.VideoWriter_fourcc(*'XVID')
 	Writer.write(frame) 执行视频写入的操作
 	• 长宽，cap.get(cv2.CAP_PROP_FRAME_WIDTH) 返回视频的宽度
 	• 视频默认读取的是彩色信息，即三通到BGR，可以通过gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)将彩色转换为灰白。
