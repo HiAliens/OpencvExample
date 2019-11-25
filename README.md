@@ -1,5 +1,6 @@
 # OpencvExample
 OpencvExample for beginners with python  
+URL:https://www.youtube.com/watch?v=3D7O_kZi8-o&list=PLS1QulWo1RIa7D1O6skqDQ-JZ1GGHKK-K&index=14  
 
 03：  
 	利用摄像头读取画面，展示画面，获取画面的张宽，以及写画面。  
