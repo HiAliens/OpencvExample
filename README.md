@@ -1,5 +1,6 @@
 # OpencvExample
-OpencvExample for beginners with python
+OpencvExample for beginners with python  
+
 03：  
 	利用摄像头读取画面，展示画面，获取画面的张宽，以及写画面。  
 	摄像头读取画面是一针一针读取的，将这一帧一帧的画面放到一个循环中，连成视频。
@@ -90,7 +91,8 @@ OpencvExample for beginners with python
 	_,th4=cv2.threshold(img,127,255,cv2.THRESH_TOZERO)#小于127全位0，大于部分为原图	
 	_,th5=cv2.threshold(img,127,255,cv2.THRESH_TOZERO_INV)#小于127为原图，大于部分为0	
 15：	
-	在14中阈值是人为指定的，对于不同的图像，阈值不同，效果不同，为了得到一个较好 二值化图片。	
+	在14中阈值是人为指定的，对于不同的图像，阈值不同，效果不同，为了得到一个较好 二值化图片。
+	
 	Th1 =dst = cv2.adaptiveThreshold(src, maxval, thresh_type, type, Block Size, C)	
 	src： 输入图，只能输入单通道图像，通常来说为灰度图	
 	dst： 输出图	
@@ -100,7 +102,7 @@ OpencvExample for beginners with python
 	Block Size： 图片中分块的大小	
 	C ：阈值计算方法中的常数项	
 	
-	本例结合了03。
+本例结合了03。
 16：	
 	将CV2读取的图片利用matplotlib.pyplot 来显示	
 	Cv2.imread(path, agrs) 读取的颜色空间为 BGR， 	
