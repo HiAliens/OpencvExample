@@ -2,9 +2,10 @@
 OpencvExample for beginners with python
 03：  
 	利用摄像头读取画面，展示画面，获取画面的张宽，以及写画面。  
-	摄像头读取画面是一针一针读取的，将这一帧一帧的画面放到一个循环中，连成视频。  
+	摄像头读取画面是一针一针读取的，将这一帧一帧的画面放到一个循环中，连成视频。
+	
 	• 读取：cap=cv2.VedioCapture(0); 其中参数是可为摄像头编号，或者视频文件的路径    
-		Ret,frame  =  Cap.read(),ret是布尔值，读取到返回ture， 读取到文件末尾返回False，frame是一帧图像。  
+	Ret,frame  =  Cap.read(),ret是布尔值，读取到返回ture， 读取到文件末尾返回False，frame是一帧图像。  
 	• 写入：writer = cv.VideoWrite（path, fourcc, fps, (H, W)），fourcc是视频的格式，长用的fourcc=cv2.VideoWriter_fourcc(*'XVID')
 	Writer.write(frame) 执行视频写入的操作  
 	• 长宽，cap.get(cv2.CAP_PROP_FRAME_WIDTH) 返回视频的宽度  
@@ -20,7 +21,8 @@ OpencvExample for beginners with python
 	cv2.imshow('image',img)，第一个图片窗口的名字，第二个是显示的图片
 	• 写：cv2.imwrite(path, img)
 05:   
-	opencv的绘图功能：在已有图片上绘制线条、箭头、多边形，字体等    
+	opencv的绘图功能：在已有图片上绘制线条、箭头、多边形，字体等  
+	
 	Img = cv2.line(img, (0,0), (255,255), (B,G,R),thickness )，(0,0), (255,255)：左上角、右下角坐标  
 	Img = cv2.arrowedLine(img, (0,255), (255,255),  (B,G,R)，thickness)  
 	Img = cv2.rectangle(img, (0,255), (255,255),  (B,G,R)，thickness)  
@@ -32,6 +34,7 @@ OpencvExample for beginners with python
 	为视频加上文字，是03、05的应用，在frame上添加文字即可。  
 08：  
 	鼠标事件，当点击鼠标左右键，执行不同的函数，展现不同的结果。  
+	
 	Cv2.setMouseCallback('image', click_event)  
 	 click_event 是一个回调函数  
 	defclick_event(event,x,y,flags,params):  
@@ -41,10 +44,11 @@ OpencvExample for beginners with python
 		iflen(points)>=2:  
 		cv2.line(img,points[-2],points[-1],(128,128,128),5)  
 		cv2.imshow('image',img)  
-	有固定的参数。  
+有固定的参数。  
 09：  
 	将鼠标事件同05结合  
-		10： 
+10： 
+
 	H, w, c = img.shape  获得图片的长、宽、通道数＜/br＞ 
 	B, g, r = cv2.split(img) ＜/br＞ 
 	Img = cv2.merge((b, g, r))＜/br＞ 
@@ -68,8 +72,7 @@ OpencvExample for beginners with python
 	Cv2.namedWindow('image')  创建一个命名窗口，图片和滑块通过指定窗口名字‘image’都显示到这个窗口上
 	
 	Cv2.createTrackbar(bar_name, window_name, min, max, callback_func)
-	Pos = cv2.getTrackbarPos(bar_name, window_name)  获得滑块当前值
-	
+	Pos = cv2.getTrackbarPos(bar_name, window_name)  获得滑块当前值	
 	它可以用于改变图片中BGR的值从而显示不同的图片，或者在图片添加滑块的值为文字
 13：   	
 	介绍了HSV颜色空间，色调（H），饱和度（S），明度（V）。＜/br＞ 
@@ -80,6 +83,7 @@ OpencvExample for beginners with python
 	Mask = cv2.inRange(hsv_img,low_array, high_array)
 14:			
 	对图片像素值进行截断，给定一个阈值，阈值一下一个值，阈值以上一个值，得到一个二值化图片	
+	
 	_,th1=cv2.threshold(img,127,255,cv2.THRESH_BINARY)#0or1 	
 	_,th2=cv2.threshold(img,127,255,cv2.THRESH_BINARY_INV)#0to1,1to0 	
 	_,th3=cv2.threshold(img,127,255,cv2.THRESH_TRUNC)#小于127是原图像素值，大于部分全为127	
@@ -114,16 +118,19 @@ OpencvExample for beginners with python
 	closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)  # dilation + erosion
 18:	  		
 	对图片做平滑处理或模糊处理， 同样需要一个核，有二维卷积（平滑）、模糊、高斯滤波、中值滤波、双边滤波	
-	Kernel =  np.ones((5, 5), np.float32) / 25  # divided by size ^ 2	
-	dst = cv2.filter2D(img, -1, kernel)  # smooth	
+	
+	Kernel =  np.ones((5, 5), np.float32) / 25  # divided by size ^ 2  	
+	dst = cv2.filter2D(img, -1, kernel)  # smooth
 	blur = cv2.blur(img, (5, 5))  # mean method	
 	gblur = cv2.GaussianBlur(img, (5, 5), 0)  # 先计算卷积核的值，在去做操作	
 	median = cv2.medianBlur(img, 5)  # use salt-pepper-noise.png to see result	
 	bilatera = cv2.bilateralFilter(img, 9, 75, 75)  # preserve the border of img	
+	
 19：	  		
 	求图像x、y轴上的梯度信息，从而可以实现物体的边缘检测	
 	先将图片转化为灰度图后进行边缘检测，使用边缘检测算法时候，会出现负值，使用cv2.CV_64F数据类型处理负值，显示图片前，需要将负数取绝对值	
-	求梯度方法如下：	
+	求梯度方法如下：
+	
 	Laplacian算子：	
 	Lap = cv2.Laplacian(img_gray, cv2.CV_64F， ksize = 3)	
 	Lap = np.uint8(np.absolute(lap))	
