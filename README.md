@@ -44,18 +44,18 @@ OpencvExample for beginners with python
 	有固定的参数。  
 09：  
 	将鼠标事件同05结合  
-10：＜/br＞ 
-	H, w, c = img.shape  获得图片的长、宽、通道数＜/br＞ 
-	B, g, r = cv2.split(img) ＜/br＞ 
-	Img = cv2.merge((b, g, r))＜/br＞ 
+		10：＜/br＞ 
+			H, w, c = img.shape  获得图片的长、宽、通道数＜/br＞ 
+			B, g, r = cv2.split(img) ＜/br＞ 
+			Img = cv2.merge((b, g, r))＜/br＞ 
 	
-	Ball = img[x:x+a, y:y+b]  提取图中的物体
-	Img[z:z+a, t:t+a] = ball 将提取到的物体复制到图片中其他位置
+			Ball = img[x:x+a, y:y+b]  提取图中的物体
+			Img[z:z+a, t:t+a] = ball 将提取到的物体复制到图片中其他位置
 	
-	Img = cv2.resize(img, (h,w) ) 重置大小
+			Img = cv2.resize(img, (h,w) ) 重置大小
 	
-	Dst = cv2.add(img, img1)   将两张大小相同的图片叠加在一起，就是对应坐标相加。
-	Dst = cv2.addWeight(img, 0.9, img1, 0.1)  按照比例进行融合，造成一种透明的感觉
+			Dst = cv2.add(img, img1)   将两张大小相同的图片叠加在一起，就是对应坐标相加。
+			Dst = cv2.addWeight(img, 0.9, img1, 0.1)  按照比例进行融合，造成一种透明的感觉
 11：＜/br＞ 
 	对图像进行逻辑运算，得到不同的效果＜/br＞ 
 	
