@@ -102,13 +102,15 @@ OpencvExample for beginners with python
 	Block Size： 图片中分块的大小	
 	C ：阈值计算方法中的常数项	
 	
-本例结合了03。
+本例结合了03。  
+
 16：	
 	将CV2读取的图片利用matplotlib.pyplot 来显示	
 	Cv2.imread(path, agrs) 读取的颜色空间为 BGR， 	
 	Plt,imshow(img, args) 展示的图片为RGB	
 	需要使用 img = cv2.cvtColorimg, cv2.COLOR_BGR2RGB()  	
 
+17: 
 	对二值化图形进行腐蚀、扩张等操作，操作实质是对某个像素点的周围像素进行整合，需要一个“核”。
 	
 	_, mask = cv2.threshold(img, 220, 255, cv2THRESH_BINARY_INV.)  # 对图片进行二值化
