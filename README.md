@@ -44,26 +44,26 @@ OpencvExample for beginners with python
 	有固定的参数。  
 09：  
 	将鼠标事件同05结合  
-		10：＜/br＞ 
-			H, w, c = img.shape  获得图片的长、宽、通道数＜/br＞ 
-			B, g, r = cv2.split(img) ＜/br＞ 
-			Img = cv2.merge((b, g, r))＜/br＞ 
+		10： 
+	H, w, c = img.shape  获得图片的长、宽、通道数＜/br＞ 
+	B, g, r = cv2.split(img) ＜/br＞ 
+	Img = cv2.merge((b, g, r))＜/br＞ 
 	
-			Ball = img[x:x+a, y:y+b]  提取图中的物体
-			Img[z:z+a, t:t+a] = ball 将提取到的物体复制到图片中其他位置
+	Ball = img[x:x+a, y:y+b]  提取图中的物体
+	Img[z:z+a, t:t+a] = ball 将提取到的物体复制到图片中其他位置
 	
-			Img = cv2.resize(img, (h,w) ) 重置大小
+	Img = cv2.resize(img, (h,w) ) 重置大小
 	
-			Dst = cv2.add(img, img1)   将两张大小相同的图片叠加在一起，就是对应坐标相加。
-			Dst = cv2.addWeight(img, 0.9, img1, 0.1)  按照比例进行融合，造成一种透明的感觉
-11：＜/br＞ 
-	对图像进行逻辑运算，得到不同的效果＜/br＞ 
+	Dst = cv2.add(img, img1)   将两张大小相同的图片叠加在一起，就是对应坐标相加。
+	Dst = cv2.addWeight(img, 0.9, img1, 0.1)  按照比例进行融合，造成一种透明的感觉
+		11： 
+	对图像进行逻辑运算，得到不同的效果
 	
 	bitAnd=cv2.bitwise_and(img2,img1)#全1才是1
 	bitOr=cv2.bitwise_or(img2,img1)#有一个1就是1
 	bitXor=cv2.bitwise_xor(img2,img1)#相同是0不同是1
 	bitNot=cv2.bitwise_not(img2)#取反
-12：＜/br＞ 
+12： 
 	在窗口上添加一个滑动条，拖动滑块，改变变量的值，滑块和图片应该在同一个窗口上。＜/br＞ 
 	Cv2.namedWindow('image')  创建一个命名窗口，图片和滑块通过指定窗口名字‘image’都显示到这个窗口上＜/br＞ 
 	
