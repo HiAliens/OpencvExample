@@ -14,7 +14,7 @@ img = cv2.imread('smarties.png', cv2.IMREAD_GRAYSCALE)
 _, mask = cv2.threshold(img, 220, 255, cv2.THRESH_BINARY_INV)
 
 kernel = np.ones((5, 5), np.uint8)
-dilation = cv2.dilate(mask, kernel, iterations=2)
+dilation = cv2.dilate(mask, None, iterations=2)
 erosion = cv2.erode(mask, kernel, iterations=1)
 opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)  # erosion +dilation
 closing = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)  # dilation + erosion
